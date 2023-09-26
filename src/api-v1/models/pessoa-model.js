@@ -1,22 +1,18 @@
-const insere = () => {};
-const lista = (params, callback) => {
-  const objFake = [
-    {
-      id: 5,
-      nome: "Francis Ford Copolla",
-      email: "copolla@hollywood.com",
-      telefone: "001-124-2111",
-      organizacao: null,
-      tags: ["cinema", "trabalho"],
-    },
-  ];
+import db from "../utils/db";
 
-  const lista = objFake;
-  const err = null;
-  callback(err, lista);
+const insere = (obj, callback) => {
+  db.pessoasDB.insert(obj, callback);
 };
+
+const lista = (params, callback) => {
+  db.pessoasDB.find({}, callback);
+};
+
 const altera = () => {};
-const exclui = () => {};
+
+const exclui = (obj, callback) => {
+  db.pessoasDB.remove(obj, callback);
+};
 
 export default {
   insere,
